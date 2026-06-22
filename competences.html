@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compétences - Loïc Guyot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* CSS spécifique pour les preuves (Lightbox) */
+    .proof-gallery {
+      display: flex;
+      justify-content: center; /* C'est cette ligne qui centre toutes les images */
+      gap: 15px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    .proof-img-thumb {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--accent, #7c5cff);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .proof-img-thumb:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(124, 92, 255, 0.4);
+    }
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from {transform: scale(0.8); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .close-lightbox:hover {
+      color: #7c5cff;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Mon<span>Portfolio</span></a>
+      <nav class="nav">
+        <a href="index.html">Accueil & À propos</a>
+        <a href="projets.html">Projets</a>
+        <a href="competences.html" style="color:var(--text)">Compétences</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section terminal-section">
+      <canvas id="matrix-canvas"></canvas>
+      <div class="container relative-z">
+        <div class="competences-grid-cards">
+          <div class="comp-card red" onclick="openModal('modal-admin')">
+            <div class="comp-header">Administrer</div>
+            <div class="comp-body">
+              <span class="comp-level">Niveau 3</span>
+              <p>Administrer les réseaux et l'Internet</p>
+              <span class="click-info">(Cliquez pour voir les détails)</span>
+            </div>
+          </div>
+          <div class="comp-card orange" onclick="openModal('modal-connect')">
+            <div class="comp-header">Connecter</div>
+            <div class="comp-body">
+              <span class="comp-level">Niveau 3</span>
+              <p>Connecter les entreprises et les usagers</p>
+              <span class="click-info">(Cliquez pour voir les détails)</span>
+            </div>
+          </div>
+          <div class="comp-card yellow" onclick="openModal('modal-prog')">
+            <div class="comp-header">Créer</div>
+            <div class="comp-body">
+              <span class="comp-level">Niveau 3</span>
+              <p>Créer des outils et des applications</p>
+              <span class="click-info">(Cliquez pour voir les détails)</span>
+            </div>
+          </div>
+          <div class="comp-card green" onclick="openModal('modal-secu')">
+            <div class="comp-header">Gérer</div>
+            <div class="comp-body">
+              <span class="comp-level">Niveau 2</span>
+              <p>Administrer et gérer un projet informatique</p>
+              <span class="click-info">(Cliquez pour voir les détails)</span>
+            </div>
+          </div>
+          <div class="comp-card blue" onclick="openModal('modal-surv')">
+            <div class="comp-header">Sécuriser</div>
+            <div class="comp-body">
+              <span class="comp-level">Niveau 2</span>
+              <p>Surveiller et Sécuriser un Système d'Information</p>
+              <span class="click-info">(Cliquez pour voir les détails)</span>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </section>
+
+    <div id="modal-admin" class="modal">
+      <div class="modal-content border-red">
+        <span class="close-btn" onclick="closeModal('modal-admin')">&times;</span>
+        <h2 class="detail-title bg-red">Bloc 1 : Administrer les réseaux et l'Internet — Niveau 3</h2>
+
+        <button class="accordion">AC31.01 | Concevoir une infrastructure réseau complexe</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Projet de transformation "Scale-Up 80" nécessitant la refonte totale de l'architecture vieillissante d'une entreprise, et interconnexion de deux sites distants (SAÉ 3.03).</p>
+            <h4>Objectifs</h4><p>Établir une topologie réseau hiérarchique, segmenter logiquement les flux pour des raisons de sécurité, et assurer un routage dynamique capable de s'adapter automatiquement aux pannes de liens.</p>
+            <h4>Problèmes rencontrés</h4><p>Le réseau existant était "à plat", générant des tempêtes de broadcast (ralentissements) et permettait à n'importe quel employé d'accéder aux serveurs de R&D. L'interconnexion de sites distants posait le problème de la gestion des routes sur un réseau public instable.</p>
+            <h4>Solutions mises en place</h4><p>J'ai découpé le réseau en créant des VLANs dédiés par métier (Admin, Production, Vidéo) pour réduire la taille des domaines de diffusion. Au niveau de la couche 3, j'ai implémenté le protocole de routage <strong>OSPF</strong>. Un NAT en mode overload a également été configuré pour masquer le plan d'adressage privé.</p>
+            <h4>Résultats</h4><p>L'infrastructure est devenue hautement évolutive (scalable). Les flux critiques sont isolés, la bande passante est préservée, et la tolérance aux pannes est assurée de manière autonome.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE3.03 - Pepiniere_Multi-Sites.pdf" target="_blank">SAE3.03 - Pepiniere_Multi-Sites.pdf :</a></strong> Configuration OSPF et NAT.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3101/ac3101-ospf-1.png" alt="Preuve OSPF" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3101/ac3101-ospf-2.png" alt="Preuve OSPF 2" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3101/ac3101-ospf-3.png" alt="Preuve OSPF 2" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3101/ac3101-ospf-4.png" alt="Preuve OSPF 2" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE5.02 - Conception_SI_Scale-Up_80.pdf" target="_blank">SAE5.02 - Conception_SI_Scale-Up_80.pdf :</a></strong> Schéma d'architecture logique détaillant la segmentation.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3101/ac3101-schema-1.png" alt="Schéma d'architecture" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC31.02 | Assurer la continuity d'activité</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Sécurisation des données du projet "Scale-Up 80" et conception d'une architecture serveur résiliente pour héberger 1000 machines virtuelles étudiantes (SAÉ 501).</p>
+            <h4>Objectifs</h4><p>Garantir qu'en cas de sinistre majeur (incendie, attaque par rançongiciel, panne), l'entreprise ou l'université puisse redémarrer son activité sans perte de données critiques.</p>
+            <h4>Problèmes rencontrés</h4><p>Le stockage local traditionnel représente un point de défaillance unique (SPOF). Par ailleurs, la sauvegarde de centaines de VMs génère des coûts de stockage exorbitants.</p>
+            <h4>Solutions mises en place</h4><p>J'ai défini une politique stricte basée sur la règle du <strong>3-2-1</strong> (3 copies, 2 supports, 1 externalisée via Azure File Sync). Pour l'infrastructure des TP (SAÉ 501), j'ai conçu un cluster de 3 nœuds sous <strong>Proxmox VE</strong> utilisant des "Linked Clones" pour ne sauvegarder que les différences (deltas).</p>
+            <h4>Résultats</h4><p>Un PRA (Plan de Reprise d'Activité) validé permettant un redémarrage rapide. L'empreinte de stockage a été optimisée, rendant le projet financièrement viable.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE5.02 - Conception_SI_Scale-Up_80.pdf" target="_blank">SAE5.02 - Conception_SI_Scale-Up_80.pdf :</a></strong> Stratégie de sauvegarde hybride 3-2-1.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3102/ac3102-sauvegarde-1.png" alt="Schéma de sauvegarde 3-2-1" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf :</a></strong> Architecture du cluster Proxmox.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3102/ac3102-stockage-1.png" alt="Architecture Cluster" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3102/ac3102-stockage-2.png" alt="Architecture Cluster" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC31.03 | Diagnostiquer et résoudre des dysfonctionnements</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Missions de support de niveau 1 et 2 (MCO - Maintien en Condition Opérationnelle) lors de mon stage au Centre Hospitalier de Béthune-Beuvry.</p>
+            <h4>Objectifs</h4><p>Identifier l'origine technique des pannes signalées par le personnel médical et appliquer des correctifs définitifs dans des délais très courts (GTR).</p>
+            <h4>Problèmes rencontrés</h4><p>Lors du déploiement du nouveau Dossier Patient Informatisé (DPI Dedalus C4U), de nombreuses instabilités sont apparues sur les postes clients, menaçant la continuité des soins. Le paramétrage des scanners réseau posait également des problèmes de communication.</p>
+            <h4>Solutions mises en place</h4><p>Méthodologie de troubleshooting en entonnoir (couches OSI). Utilisation de GLPI pour catégoriser les incidents, analyse des logs locaux, et rédaction/application de fiches réflexes (notamment pour la configuration complexe du logiciel CaptureOnTouch).</p>
+            <h4>Résultats</h4><p>Réduction significative du temps de traitement des tickets. La capitalisation des pannes via la documentation a permis à l'équipe de résoudre les incidents récurrents beaucoup plus vite.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/Rapport de Stage 2026.pdf" target="_blank">Rapport de Stage 2026.pdf :</a></strong> Fiche réflexe de configuration des scanners et interface GLPI.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3103/ac3103-glpi-1.png" alt="Capture d'écran GLPI" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3103/ac3103-scanner-1.png" alt="Fiche réflexe scanner" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC31.04 | Automatiser les tâches d'administration</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Administration d'un domaine Windows Server gérant les comptes et postes informatiques du département R&T de l'IUT.</p>
+            <h4>Objectifs</h4><p>Déployer massivement des logiciels et des configurations spécifiques sans avoir à intervenir physiquement sur chaque poste client.</p>
+            <h4>Problèmes rencontrés</h4><p>L'installation du logiciel Paint Shop Pro 7 nécessitait des droits administrateurs et modifiait des clés de registre utilisateur (HKCU), ce qui empêchait son exécution correcte pour les étudiants.</p>
+            <h4>Solutions mises en place</h4><p>Développement de scripts d'automatisation en <strong>PowerShell</strong> (InstallPSP.ps1). J'ai implémenté un script s'exécutant automatiquement via les GPO à l'ouverture de session pour forcer la création de la clé de registre de validation dans la ruche de l'utilisateur courant.</p>
+            <h4>Résultats</h4><p>Déploiement logiciel 100% automatisé et transparent pour l'utilisateur. Gain de temps considérable pour la DSI.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/R2.04 - Administration_Windows_Serveur.pdf" target="_blank">R2.04 - Administration_Windows_Serveur.pdf :</a></strong> Code source complet du script PowerShell.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3104/ac3104-powershell-1.png" alt="Script PowerShell" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC31.05 | Déployer des services réseaux d'entreprise</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Mise en place des services fondamentaux (Core Services) d'infrastructures pour divers projets (SAÉ 1.02, SAÉ 3.03, et maquettage Web Linux).</p>
+            <h4>Objectifs</h4><p>Fournir l'adressage automatique, la résolution de noms de domaine et la mise à disposition centralisée de ressources.</p>
+            <h4>Problèmes rencontrés</h4><p>Les requêtes DHCP ne traversent pas les routeurs par défaut. De plus, la gestion des requêtes clientes nécessitait un serveur capable d'orienter le trafic efficacement.</p>
+            <h4>Solutions mises en place</h4><p>Configuration de serveurs DHCP Cisco avec des agents relais (ip helper-address). Côté systèmes Linux, j'ai déployé un serveur DNS <strong>Bind9</strong> (zones directes/inverses) ainsi qu'un serveur web <strong>Nginx</strong> agissant comme reverse-proxy.</p>
+            <h4>Résultats</h4><p>Les clients obtiennent leur configuration IP dynamiquement et accèdent aux ressources intranet/Internet de manière fluide.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE1.02 - Initiation_Reseaux_Informatiques.pdf" target="_blank">SAE1.02 - Initiation_Reseaux_Informatiques.pdf :</a></strong> Commandes Cisco pour la création des pools DHCP.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3105/ac3105-dhcp-1.png" alt="Pool DHCP Cisco" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac31/ac3105/ac3105-dhcp-2.png" alt="Pool DHCP Cisco" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Configuration de la zone DNS Bind9.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3105/ac3105-dns-1.png" alt="Zone DNS Bind9" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC31.06 | Optimiser les performances du système d'information</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Déploiement d'une solution de téléphonie sur IP (VoIP) et de visioconférence au sein de la pépinière d'entreprises (SAÉ 3.03).</p>
+            <h4>Objectifs</h4><p>Garantir la fluidité absolue des communications voix et vidéo, même lorsque le réseau est fortement sollicité par des transferts de fichiers volumineux.</p>
+            <h4>Problèmes rencontrés</h4><p>Les paquets UDP utilisés par la VoIP n'ont pas de mécanisme de retransmission. Des téléchargements massifs coupaient la voix des commerciaux (gigue et latence inacceptables).</p>
+            <h4>Solutions mises en place</h4><p>Implémentation d'une politique de Qualité de Service (<strong>QoS</strong>) sur les équipements de cœur de réseau. J'ai utilisé des ACL pour marquer le trafic lié à la voix, puis créé des Class-map et Policy-map pour appliquer une file d'attente prioritaire (Priority Queuing).</p>
+            <h4>Résultats</h4><p>Plus aucune coupure signalée lors des appels. Le trafic temps-réel est priorisé matériellement par le switch.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE3.03 - Pepiniere_Multi-Sites.pdf" target="_blank">SAE3.03 - Pepiniere_Multi-Sites.pdf :</a></strong> Implémentation de la QoS (Class-map et Policy-map).
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac31/ac3106/ac3106-qos-1.png" alt="Configuration QoS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-connect" class="modal">
+      <div class="modal-content border-orange">
+        <span class="close-btn" onclick="closeModal('modal-connect')">&times;</span>
+        <h2 class="detail-title bg-orange">Bloc 2 : Connecter les entreprises et les usagers — Niveau 3</h2>
+
+        <button class="accordion">AC32.01 | Mesurer et analyser des signaux physiques</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Étude fondamentale des télécommunications et des dispositifs de transmission radiofréquence (SAÉ 1.03, SAÉ 3.01).</p>
+            <h4>Objectifs</h4><p>Comprendre la transformation de l'information en ondes électromagnétiques et interpréter leurs caractéristiques (fréquence, amplitude, phase).</p>
+            <h4>Problèmes rencontrés</h4><p>Les signaux réels captés dans l'air (4G/LTE, GSM) sont pollués par le bruit de fond thermique et les interférences, rendant leur analyse directe complexe.</p>
+            <h4>Solutions mises en place</h4><p>J'ai utilisé des environnements de simulation (Simulink/Matlab) pour isoler des signaux purs. Ensuite, je suis passé à la pratique avec un analyseur de spectre matériel (MCS Spectrum Analyzer) couplé à des antennes directionnelles HyperLOG pour scanner l'environnement hertzien.</p>
+            <h4>Résultats</h4><p>Maîtrise de la caractérisation d'un signal. Capacité à distinguer une porteuse utile du bruit ambiant, et à identifier le type de modulation utilisé.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE1.03 - Decouverte_Dispositif_Transmission.pdf" target="_blank">SAE1.03 - Decouverte_Dispositif_Transmission.pdf :</a></strong> Modélisations graphiques des signaux sous Matlab/Simulink.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3201/ac3201-matlab-1.png" alt="Signaux Matlab" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-matlab-2.png" alt="Signaux Matlab" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-matlab-3.png" alt="Signaux Matlab" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-matlab-4.png" alt="Signaux Matlab" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-matlab-5.png" alt="Signaux Matlab" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE3.01 - Etude_Transmission_Signaux.pdf" target="_blank">SAE3.01 - Etude_Transmission_Signaux.pdf :</a></strong> Captures de l'analyseur de spectre isolant les fréquences GSM et LTE.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3201/ac3201-mcs-1.png" alt="Spectre MCS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-mcs-2.png" alt="Spectre MCS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-mcs-3.png" alt="Spectre MCS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-mcs-4.png" alt="Spectre MCS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3201/ac3201-mcs-5.png" alt="Spectre MCS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC32.02 | Déployer des supports de transmission (Fibre/Cuivre)</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Projet stratégique de déploiement de la fibre optique (FTTH - Fiber To The Home) pour la commune rurale de Locon.</p>
+            <h4>Objectifs</h4><p>Étudier la faisabilité technique du raccordement Très Haut Débit d'un territoire, analyser le marché des FAI, et concevoir une offre de services (domotique, santé).</p>
+            <h4>Problèmes rencontrés</h4><p>Expliquer le fonctionnement de l'infrastructure optique (du NRO jusqu'à la PTO) à des élus locaux sans les noyer sous le jargon technique, tout en justifiant les coûts de génie civil.</p>
+            <h4>Solutions mises en place</h4><p>J'ai réalisé un audit de couverture via les données de l'ARCEP, identifiant les armoires de rue (PMZ). J'ai packagé l'offre avec des services additionnels : Wi-Fi 6 Mesh, téléalarme pour le maintien à domicile des séniors, et anticipation du 10 G-PON.</p>
+            <h4>Résultats</h4><p>Production d'un dossier complet et vulgarisé, démontrant que la fibre optique est un levier de désenclavement numérique et de santé publique.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/Communication - Deploiement_Fibre_FTTH_Locon.pdf" target="_blank">Communication - Deploiement_Fibre_FTTH_Locon.pdf :</a></strong> Analyse des PMZ locaux et présentation des services domotiques.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3202/ac3202-pmz-1.png" alt="Étude PMZ" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC32.03 | Concevoir des systèmes de transmission radio</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Mise en pratique des techniques de communication sans fil avancées dans le cadre de la SAÉ 3.01.</p>
+            <h4>Objectifs</h4><p>Émettre et recevoir un véritable flux multimédia par voie hertzienne en maîtrisant la chaîne de transmission.</p>
+            <h4>Problèmes rencontrés</h4><p>Synchroniser parfaitement l'émetteur et le récepteur, et s'affranchir des limitations des composants électroniques physiques pour tester plusieurs modulations.</p>
+            <h4>Solutions mises en place</h4><p>Exploitation de la technologie SDR (Radio Logicielle) avec des modules <strong>ADALM-PLUTO</strong>. J'ai développé sous <strong>GNURadio</strong> des diagrammes de blocs logiciels configurant le taux d'échantillonnage et la modulation (FM/RDS).</p>
+            <h4>Résultats</h4><p>Création réussie d'une station de diffusion locale transmettant en temps réel un streaming audio/vidéo clair.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE3.01 - Etude_Transmission_Signaux.pdf" target="_blank">SAE3.01 - Etude_Transmission_Signaux.pdf :</a></strong> Graphes GNURadio et diffusion HF avec ADALM-PLUTO.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3203/ac3203-gnuradio-1.png" alt="Graphe GNURadio" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3203/ac3203-gnuradio-2.png" alt="Graphe GNURadio" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3203/ac3203-gnuradio-3.png" alt="Graphe GNURadio" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3203/ac3203-gnuradio-4.png" alt="Graphe GNURadio" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3203/ac3203-gnuradio-5.png" alt="Graphe GNURadio" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC32.04 | Intégrer des systèmes de communications unifiées</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Intégration des équipements terminaux pour les employés de la Pépinière d'entreprises (SAÉ 2.01).</p>
+            <h4>Objectifs</h4><p>Fournir aux collaborateurs des téléphones IP et des caméras de sécurité, tout en minimisant l'impact sur le câblage électrique des bâtiments.</p>
+            <h4>Problèmes rencontrés</h4><p>Tirer une ligne électrique 220V à côté de chaque prise réseau (plafond) engendre des coûts de câblage colossaux et pose des problèmes de sécurité électrique.</p>
+            <h4>Solutions mises en place</h4><p>Étude et implémentation du <strong>PoE (Power over Ethernet)</strong>. Dimensionnement des commutateurs pour injecter un courant continu (normes 802.3af/at). Configuration du serveur de téléphonie (SIP) et des flux vidéo (RTSP).</p>
+            <h4>Résultats</h4><p>Infrastructure centralisée : les périphériques s'alimentent et communiquent via un unique câble RJ45, ondulés directement depuis la baie serveur.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE2.01 - Pepiniere_Entreprises_Infra.pdf" target="_blank">SAE2.01 - Pepiniere_Entreprises_Infra.pdf :</a></strong> Étude technique sur les normes PoE et configuration de la téléphonie.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3204/ac3204-poe-1.png" alt="Étude PoE" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac32/ac3204/ac3204-poe-1.png" alt="Étude PoE" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC32.05 | Sécuriser les transmissions</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Interconnexion des agences distantes (SAÉ 3.03) et conception réseau pour la Fédération Française de Football (Projet Interpulse).</p>
+            <h4>Objectifs</h4><p>Rendre les données parfaitement illisibles et inaltérables lorsqu'elles traversent des réseaux non maîtrisés (Internet public ou ondes radio).</p>
+            <h4>Problèmes rencontrés</h4><p>Par défaut, le trafic circule "en clair", exposant l'entreprise au sniffing (vol de mots de passe, interception de données biométriques sportives).</p>
+            <h4>Solutions mises en place</h4><p>Déploiement d'un tunnel <strong>GRE encapsulé dans IPsec</strong> (phases ISAKMP, Transform-sets AES) pour le WAN. Pour le projet FFF, j'ai architecturé une infrastructure <strong>5G Privée</strong>, utilisant le "Network Slicing" pour créer un canal hermétique dédié aux flux médicaux.</p>
+            <h4>Résultats</h4><p>Un canal de communication de qualité militaire a été établi. La confidentialité des échanges est totale, rendant toute tentative d'écoute inexploitable.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE3.03 - Pepiniere_Multi-Sites.pdf" target="_blank">SAE3.03 - Pepiniere_Multi-Sites.pdf :</a></strong> Scripts CLI de configuration IPsec.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3205/ac3205-ipsec-1.png" alt="Code CLI IPsec" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/Communication - Projet_INTERPULSE_5G_FFF.pdf" target="_blank">Communication - Projet_INTERPULSE_5G_FFF.pdf :</a></strong> Conception logique de la "bulle 5G privée" et Network Slicing.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac32/ac3205/ac3205-5g-1.png" alt="Schéma 5G Network Slicing" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-prog" class="modal">
+      <div class="modal-content border-yellow">
+        <span class="close-btn" onclick="closeModal('modal-prog')">&times;</span>
+        <h2 class="detail-title bg-yellow">Bloc 3 : Créer des outils et applications — Niveau 3</h2>
+
+        <button class="accordion">AC33.01 | Développer des scripts et programmes</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Conception d'un site web intranet et administration automatisée de serveurs Windows.</p>
+            <h4>Objectifs</h4><p>Créer des interfaces web interactives et remplacer les processus d'administration manuels chronophages par des scripts fiables.</p>
+            <h4>Problèmes rencontrés</h4><p>Le HTML statique ne gère pas l'authentification. L'exécution répétitive de commandes système augmente le risque d'erreur de frappe pouvant corrompre le système.</p>
+            <h4>Solutions mises en place</h4><p>Développement de la logique serveur en <strong>PHP</strong> (gestion des sessions, redirections). Côté système, développement de scripts d'administration en <strong>PowerShell</strong> manipulant l'Active Directory et le système de fichiers.</p>
+            <h4>Résultats</h4><p>Application web dynamique avec login sécurisé, et outils d'administration en ligne de commande offrant un gain de temps massif.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Code PHP gérant le login et la logique de redirection.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3301/ac3301-php-1.png" alt="Code source PHP" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac33/ac3301/ac3301-php-2.png" alt="Code source PHP" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/R2.04 - Administration_Windows_Serveur.pdf" target="_blank">R2.04 - Administration_Windows_Serveur.pdf :</a></strong> Scripts PowerShell commentés.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3301/ac3301-ps-1.png" alt="Script Powershell" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC33.02 | Modéliser et concevoir des bases de données</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Développement du backend de l'application web d'entreprise et du système IoT de collecte de température de la pépinière.</p>
+            <h4>Objectifs</h4><p>Structurer l'information pour qu'elle soit stockée, recherchée et modifiée de manière optimisée et sécurisée.</p>
+            <h4>Problèmes rencontrés</h4><p>Le stockage en fichiers plats est lent et vulnérable aux pertes ou accès concurrents. Il fallait également se prémunir contre les failles d'injection SQL.</p>
+            <h4>Solutions mises en place</h4><p>Conception d'une base de données relationnelle sous <strong>MySQL/MariaDB</strong> (MCD/MLD). Interfaçage sécurisé des scripts Python et des pages PHP avec des requêtes préparées.</p>
+            <h4>Résultats</h4><p>Centralisation robuste de la donnée. L'application traite rapidement des milliers de relevés IoT avec garantie d'intégrité (ACID).</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Commandes SQL de création de base et tables.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3302/ac3302-sql-1.png" alt="Requêtes SQL" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE2.01 - Pepiniere_Entreprises_Infra.pdf" target="_blank">SAE2.01 - Pepiniere_Entreprises_Infra.pdf :</a></strong> Interfaçage du script Python avec le capteur Arduino et la base MySQL.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3302/ac3302-python-1.png" alt="Python MySQL" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC33.03 | Déployer une architecture applicative</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Mise à disposition des environnements de TP virtuels (SAÉ 501) et hébergement du portail web de l'entreprise.</p>
+            <h4>Objectifs</h4><p>Installer et paramétrer les moteurs logiciels pour rendre les services accessibles aux utilisateurs finaux via un navigateur internet.</p>
+            <h4>Problèmes rencontrés</h4><p>Un serveur web mal configuré consomme énormément de RAM lors des pics de charge. De plus, l'accès à une interface d'hyperviseur brute est trop complexe pour des étudiants.</p>
+            <h4>Solutions mises en place</h4><p>Déploiement de <strong>Nginx</strong> sur Ubuntu, réputé pour son architecture asynchrone peu gourmande. Déploiement de l'interface GUI native de <strong>Proxmox VE</strong> avec ajustement des droits RBAC pour que chaque utilisateur soit cloisonné sur ses propres ressources.</p>
+            <h4>Résultats</h4><p>Les portails applicatifs sont stables, performants et offrent une expérience utilisateur fluide.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Configuration des Virtual Hosts Nginx sur Ubuntu.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3303/ac3303-nginx-1.png" alt="vHost Nginx" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf :</a></strong> Présentation de l'interface Web Proxmox pour l'accès étudiant.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3303/ac3303-proxmox-1.png" alt="Interface Proxmox" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC33.04 | Automatiser le traitement de données</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Exploitation IoT (Internet of Things) dans les locaux de la pépinière d'entreprises (SAÉ 2.01).</p>
+            <h4>Objectifs</h4><p>Transformer des données brutes de capteurs matériels en dashboards visuels pour la prise de décision.</p>
+            <h4>Problèmes rencontrés</h4><p>Le capteur de température Arduino génère un flux continu de données au format texte brut, indigeste et impossible à analyser humainement pour y déceler des anomalies.</p>
+            <h4>Solutions mises en place</h4><p>Mise en place d'un pipeline de traitement via <strong>Jupyter Notebook</strong> et <strong>Python (Pandas)</strong>. Les scripts importent le flux, nettoient les valeurs aberrantes et utilisent Matplotlib pour tracer des courbes analytiques.</p>
+            <h4>Résultats</h4><p>Création d'un outil d'analyse décisionnelle automatisé permettant la visualisation instantanée des variations thermiques des salles serveurs.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE2.01 - Pepiniere_Entreprises_Infra.pdf" target="_blank">SAE2.01 - Pepiniere_Entreprises_Infra.pdf :</a></strong> Intégration Arduino-Python et utilisation des notebooks Jupyter pour le tracé.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3304/ac3304-jupyter-1.png" alt="Notebook Jupyter" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC33.05 | Sécuriser le code et les applications</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Sécurisation périmétrique et applicative des serveurs web exposés sur Internet.</p>
+            <h4>Objectifs</h4><p>Garantir que les échanges entre le client et le serveur ne puissent pas être lus ou interceptés (Man-in-the-Middle).</p>
+            <h4>Problèmes rencontrés</h4><p>Le trafic HTTP est en clair par défaut. L'utilisation de certificats auto-signés génère des alertes de sécurité bloquantes sur les navigateurs web récents.</p>
+            <h4>Solutions mises en place</h4><p>Durcissement cryptographique : génération de clés et certificats <strong>SSL/TLS</strong>, configuration d'une redirection forcée HTTP vers HTTPS sous Nginx, et injection d'en-têtes de sécurité (HSTS).</p>
+            <h4>Résultats</h4><p>Application certifiée "Sécurisée", trafic chiffré de bout en bout annihilant les attaques de type MitM.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Scripts OpenSSL et configuration HTTPS Nginx.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3305/ac3305-ssl-1.png" alt="Config Nginx SSL" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac33/ac3305/ac3305-ssl-2.png" alt="Config Nginx SSL" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC33.06 | Maintenir le cycle de vie d'une application</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Projet majeur de transition logicielle au Centre Hospitalier de Béthune-Beuvry lors de mon stage.</p>
+            <h4>Objectifs</h4><p>Assurer l'intégration, le déploiement sur le terrain et l'appropriation par les utilisateurs du nouveau système d'information critique (DPI).</p>
+            <h4>Problèmes rencontrés</h4><p>Résistance au changement du personnel médical et présence inévitable de bugs de jeunesse ("Day One") rendant l'outil difficile à utiliser.</p>
+            <h4>Solutions mises en place</h4><p>Gestion opérationnelle du Change Management : déploiement physique des chariots médicaux Ergotron, rédaction de manuels de procédures simplifiés, et accompagnement terrain (Le "Run") pour corriger les bugs en lien direct avec l'éditeur.</p>
+            <h4>Résultats</h4><p>Adoption réussie du nouveau logiciel (Dedalus C4U) sans rupture du service de soins grâce au support de proximité.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/Rapport de Stage 2026.pdf" target="_blank">Rapport de Stage 2026.pdf :</a></strong> Suivi de la bascule DPI et procédure de mise en service des chariots Ergotron.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac33/ac3306/ac3306-ergotron-1.png" alt="Procédure Ergotron" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac33/ac3306/ac3306-ergotron-2.png" alt="Procédure Ergotron" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-secu" class="modal">
+      <div class="modal-content border-green">
+        <span class="close-btn" onclick="closeModal('modal-secu')">&times;</span>
+        <h2 class="detail-title bg-green">Bloc 4 : Administrer / Gérer un projet — Niveau 2</h2>
+
+        <button class="accordion">AC34.01 | Gérer un projet technique</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Projet "Scale-Up 80", conception des salles de TP virtuelles (SAÉ 501), et orchestration de la pépinière d'entreprises.</p>
+            <h4>Objectifs</h4><p>Transformer un cahier des charges en solution livrée dans les temps en coordonnant efficacement une équipe de techniciens.</p>
+            <h4>Problèmes rencontrés</h4><p>Dans un travail de groupe, l'absence de pilotage crée des goulots d'étranglement (ex: le déploiement réseau bloque les développeurs) et menace le respect des délais.</p>
+            <h4>Solutions mises en place</h4><p>Adoption d'un rôle de chef de projet agile. Découpage en lots, élaboration d'un <strong>Diagramme de Gantt</strong> pour suivre le chemin critique, et création d'une <strong>Matrice RACI</strong> pour responsabiliser chaque membre de l'équipe.</p>
+            <h4>Résultats</h4><p>Une gestion du temps millimétrée. Les conflits ont été évités, permettant de livrer des architectures 100% fonctionnelles le jour de l'évaluation finale.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf :</a></strong> Diagramme de Gantt et matrice RACI et établissement rigoureux du calendrier et des jalons.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3401/ac3401-gantt-1.png" alt="Diagramme de Gantt" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac34/ac3401/ac3401-raci-1.png" alt="Matrice RACI" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac34/ac3401/ac3401-jalons-1.png" alt="Jalons de Projet" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC34.02 | Évaluer les coûts et les ressources</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Dimensionnement matériel pour 1000 VMs (SAÉ 501) et choix des investissements IT pour le plan stratégique "Scale-Up 80".</p>
+            <h4>Objectifs</h4><p>Produire une architecture technique ultra-performante mais financièrement réaliste (respect du budget CAPEX/OPEX de l'institution).</p>
+            <h4>Problèmes rencontrés</h4><p>Sous-dimensionner les serveurs rend les travaux pratiques inutilisables, mais sur-dimensionner fait exploser la facture (notamment le coût critique du stockage SSD NVMe).</p>
+            <h4>Solutions mises en place</h4><p>Travail d'ingénierie d'avant-vente : calcul rigoureux des besoins CPU/RAM/Disque. Proposition d'un cluster hyperconvergé de 3 serveurs Dell (1.5 To de RAM totale) et justification de l'usage des *Linked Clones* pour diviser par 10 le coût du stockage.</p>
+            <h4>Résultats</h4><p>Présentation d'un budget validé et justifié à l'euro près, prouvant le meilleur ratio performance/prix du marché.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf :</a></strong> Tableau détaillé de l'architecture matérielle (BOM).
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3402/ac3402-bom-1.png" alt="Tableau Matériel BOM" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE5.02 - Conception_SI_Scale-Up_80.pdf" target="_blank">SAE5.02 - Conception_SI_Scale-Up_80.pdf :</a></strong> Analyse économique comparative (Cloud vs Hébergement Local).
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3402/ac3402-cloud-1.png" alt="Analyse Cloud vs Local" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC34.03 | Intégrer les enjeux juridiques et écologiques (RSE)</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Audit légal du site e-commerce Décathlon.fr et conception de datacenters pour les projets d'infrastructures.</p>
+            <h4>Objectifs</h4><p>Aligner les projets informatiques avec les lois impératives sur les données personnelles (RGPD), l'accessibilité (RGAA) et la réduction de l'empreinte carbone (Green IT).</p>
+            <h4>Problèmes rencontrés</h4><p>De nombreux sites violent les règles de consentement (amendes CNIL) et excluent les utilisateurs malvoyants. Écologiquement, les serveurs matériels dédiés surconsomment inutilement de l'électricité.</p>
+            <h4>Solutions mises en place</h4><p>Audit méthodique des traceurs web, mettant en évidence une rétention illégale de cookies (5 ans au lieu de 13 mois), et calcul du score d'accessibilité. Côté infra, argumentation sur la mutualisation logicielle (Proxmox) pour éviter l'achat massif de serveurs.</p>
+            <h4>Résultats</h4><p>Production de recommandations de remédiations légales et intégration d'une dimension éco-responsable limitant l'empreinte carbone des datacenters.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/R6.02 - Audit_Juridique_RGPD_Decathlon.pdf" target="_blank">R6.02 - Audit_Juridique_RGPD_Decathlon.pdf :</a></strong> Analyse juridique des traceurs et de l'accessibilité.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3403/ac3403-rgpd-1.png" alt="Audit Cookies RGPD" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf :</a></strong> Volet Développement durable et virtualisation.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3403/ac3403-greenit-1.png" alt="Section Green IT" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC34.04 | Communiquer avec les parties prenantes</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Soutenances stratégiques pour le déploiement de la fibre FTTH (Mairie de Locon) et la vente de l'architecture INTERPULSE à la FFF.</p>
+            <h4>Objectifs</h4><p>Transformer une documentation d'ingénierie aride en un discours persuasif et vendeur, adapté à des décideurs non-informaticiens.</p>
+            <h4>Problèmes rencontrés</h4><p>Expliquer le fonctionnement d'un tunnel IPsec ou d'un OLT à un Maire ou un directeur sportif fait instantanément perdre leur attention. Il faut traduire la technique en avantages.</p>
+            <h4>Solutions mises en place</h4><p>Adoption de techniques de <em>pitch executive</em>. Pour Interpulse, j'ai créé une marque forte, un slogan ("Programmé pour gagner") et un Storytelling simulant le piratage d'un joueur. Pour Locon, l'offre a été packagée autour de la télémédecine et du maintien à domicile.</p>
+            <h4>Résultats</h4><p>Approbation totale des jurys, prouvant que la capacité à vulgariser permet de démontrer que la technologie est une solution au service du business et de la vie locale.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/Communication - Projet_INTERPULSE_5G_FFF.pdf" target="_blank">Communication - Projet_INTERPULSE_5G_FFF.pdf :</a></strong> Conception du Storytelling et du slogan.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3404/ac3404-story-1.png" alt="Storytelling Interpulse" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac34/ac3404/ac3404-story-2.png" alt="Storytelling Interpulse" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/Communication - Deploiement_Fibre_FTTH_Locon.pdf" target="_blank">Communication - Deploiement_Fibre_FTTH_Locon.pdf :</a></strong> Script oral minuté et structuré pour la vulgarisation.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac34/ac3404/ac3404-script-1.png" alt="Script de présentation" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-surv" class="modal">
+      <div class="modal-content border-blue">
+        <span class="close-btn" onclick="closeModal('modal-surv')">&times;</span>
+        <h2 class="detail-title bg-blue">Bloc 5 : Surveiller et Sécuriser un SI — Niveau 2</h2>
+
+        <button class="accordion">AC35.01 | Auditer la sécurité d'un SI</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Mission de Red Teaming (Test d'intrusion offensif) en mode "Boîte Grise" pour la société Bug&Blog Ltd.</p>
+            <h4>Objectifs</h4><p>Éprouver la résistance de l'infrastructure exposée sur Internet en se glissant dans la peau d'un attaquant réel, afin d'identifier les failles exploitables.</p>
+            <h4>Problèmes rencontrés</h4><p>La surface d'attaque était large. Il fallait détecter les portes ouvertes et surtout prouver, sans détruire la production du client, qu'elles menaient à une compromission totale (accès root).</p>
+            <h4>Solutions mises en place</h4><p>Cartographie du périmètre et exploitation des vulnérabilités : détection d'un serveur FTP configuré en accès anonyme avec droits d'écriture, et exploitation d'un noyau Linux obsolète permettant une élévation de privilège. Classification de ces failles selon le standard international <strong>CVSSv3</strong>.</p>
+            <h4>Résultats</h4><p>Livraison d'un rapport de pentest professionnel offrant au DSI une feuille de route claire pour patcher en urgence son noyau Linux (CVSS 8.5) et refermer la brèche FTP (CVSS 10.0).</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE5.Cyber - Pentest_BugAndBlog_Ltd.pdf" target="_blank">SAE5.Cyber - Pentest_BugAndBlog_Ltd.pdf :</a></strong> Détail de l'exploitation et tableau récapitulatif des vulnérabilités CVSS.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac35/ac3501/ac3501-cvss-1.png" alt="Tableau vulnérabilités CVSS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3501/ac3501-cvss-2.png" alt="Tableau vulnérabilités CVSS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3501/ac3501-cvss-3.png" alt="Tableau vulnérabilités CVSS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3501/ac3501-cvss-4.png" alt="Tableau vulnérabilités CVSS" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC35.02 | Durcir et sécuriser un système ou un réseau</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Maquettage des protocoles de base de l'Internet (DNS) et missions de terrain lors de mon stage hospitalier.</p>
+            <h4>Objectifs</h4><p>Appliquer le principe de "Moindre Privilège" et de défense en profondeur en verrouillant les configurations par défaut des équipements (Hardening).</p>
+            <h4>Problèmes rencontrés</h4><p>Le protocole DNS originel est naïf et vulnérable à l'empoisonnement de cache (Spoofing). Dans un hôpital, l'accès physique à l'arrière d'un switch dans un couloir peut permettre de compromettre le réseau.</p>
+            <h4>Solutions mises en place</h4><p>Au niveau applicatif, transformation de la zone DNS en zone signée cryptographiquement en implémentant <strong>DNSSEC</strong> (création de clés KSK/ZSK) sous Bind9. Sur le terrain hospitalier, paramétrage sécurisé du Virtual Switching Framework (VSF) sur commutateurs Aruba et utilisation de tunnels RDP chiffrés pour l'administration distante.</p>
+            <h4>Résultats</h4><p>L'infrastructure repousse efficacement les attaques de base. La résolution des noms de domaine est devenue infalsifiable, et les accès physiques sont sécurisés.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">SAE4.01 - WriteUp_Securisation_Web_DNS.pdf :</a></strong> Configuration de DNSSEC (.key, .private et auto-validation).
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac35/ac3502/ac3502-dnssec-1.png" alt="Clés DNSSEC" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+                <li><strong><a href="documents/Rapport de Stage 2026.pdf" target="_blank">Rapport de Stage 2026.pdf :</a></strong> Lignes de commande CLI du VSF sur commutateur Aruba et configuration du client RDP Remmina.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac35/ac3502/ac3502-durcissement-1.png" alt="durcissement Ubuntu" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3502/ac3502-durcissement-2.png" alt="durcissement Ubuntu" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC35.03 | Réagir face à un incident de sécurité</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Conception logique du socle de défense pour l'infrastructure sportive FFF (Projet Interpulse) et suivi opérationnel des incidents médicaux hospitaliers.</p>
+            <h4>Objectifs</h4><p>Automatiser la détection d'activités malveillantes (Threat Detection) et orchestrer une réponse dynamique immédiate, tout en préservant l'intégrité des preuves (Forensics).</p>
+            <h4>Problèmes rencontrés</h4><p>Lors d'une cyberattaque, la vitesse de réaction humaine est trop lente. Si la base de données stockant les performances médicales des joueurs ou des patients est altérée, la valeur vitale du système est détruite.</p>
+            <h4>Solutions mises en place</h4><p>Architecture d'une défense active intégrant un <strong>IDS (Système de Détection d'Intrusion)</strong> sur le réseau 5G avec bannissement IP automatisé. Pour contrer l'altération des bases de données, les enregistrements de santé ont été adossées à une <strong>Blockchain</strong> assurant un hachage mathématiquement immuable.</p>
+            <h4>Résultats</h4><p>Création d'une forteresse numérique auto-réparatrice. L'attaque est isolée en quelques millisecondes avec une garantie d'intégrité absolue de la donnée.</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/Communication - Projet_INTERPULSE_5G_FFF.pdf" target="_blank">Communication - Projet_INTERPULSE_5G_FFF.pdf :</a></strong> Scénario d'usage détaillant l'attaque, la détection IDS et le verrouillage Blockchain.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac35/ac3503/ac3503-scenario-1.png" alt="Scénario d'attaque" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion">AC35.04 | Définir et implémenter une politique de sécurité</button>
+        <div class="panel">
+          <div class="panel-inner">
+            <h4>Contexte</h4><p>Direction des choix stratégiques globaux de protection de l'information pour la transformation du SI "Scale-Up 80".</p>
+            <h4>Objectifs</h4><p>Sortir du bricolage technique ponctuel pour imposer un cadre formel de gouvernance de la sécurité (PSSI) applicable à l'ensemble de l'entreprise.</p>
+            <h4>Problèmes rencontrés</h4><p>La société souffrait d'une "Dette Technique" monumentale. L'absence de règles d'accès permettait par exemple aux secrétaires de visualiser les secrets industriels de la division Recherche & Développement, posant des risques de fuite.</p>
+            <h4>Solutions mises en place</h4><p>Élaboration initiale d'une <strong>Matrice des Risques</strong> pour cartographier les menaces. Conception et application du concept de <strong>"Forteresse Locale"</strong> : un VLAN dédié à la R&D, totalement imperméable au reste de l'entreprise, protégé par des ACL strictes empêchant toute communication non autorisée venant du réseau administratif.</p>
+            <h4>Résultats</h4><p>Ségrégation totale des environnements. Réduction massive du risque de mouvements latéraux par des malwares et alignement du SI sur les standards de l'industrie (type ISO 27001).</p>
+            <h4>Preuves</h4>
+            <ul>
+                <li><strong><a href="documents/SAE5.02 - Conception_SI_Scale-Up_80.pdf" target="_blank">SAE5.02 - Conception_SI_Scale-Up_80.pdf :</a></strong> Matrice des risques, diagnostic de la dette technique, et plan de la Forteresse Locale.
+                  <div class="proof-gallery">
+                    <img src="img/preuves/ac35/ac3504/ac3504-matrice-1.png" alt="Matrice des Risques" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3504/ac3504-matrice-2.png" alt="Matrice des Risques" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                    <img src="img/preuves/ac35/ac3504/ac3504-matrice-3.png" alt="Matrice des Risques" class="proof-img-thumb" onclick="openLightbox(this.src)">
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <footer class="site-footer">
+    <div class="container row between center-v">
+      <p class="muted">© <span id="y"></span> Loïc Guyot.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelector('.menu-toggle').addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+
+    // Modales principales
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Accordéons
+    var acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+
+    // Lightbox (Zoom Images)
+    function openLightbox(src) {
+      document.getElementById('lightbox').style.display = "flex";
+      document.getElementById('lightbox-img').src = src;
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = "none";
+    }
+  </script>
+
+  <script>
+    // Animation Matrix / Hacking
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      const section = document.querySelector('.terminal-section');
+      canvas.height = section ? section.offsetHeight : window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!\\|{}<>[]^~azertyuiopqsdfghjklmwxcvbn';
+    const fontSize = 16;
+    let columns = 0;
+    let drops = [];
+    function initMatrix() {
+      columns = canvas.width / fontSize;
+      drops = [];
+      for (let x = 0; x < columns; x++) { drops[x] = 1; }
+    }
+    setTimeout(initMatrix, 150);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(14, 15, 20, 0.05)'; 
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#7c5cff'; 
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+  </script>
+</body>
+</html>

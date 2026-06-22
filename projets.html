@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets - Loïc Guyot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Mon<span>Portfolio</span></a>
+      <nav class="nav">
+        <a href="index.html">Accueil & À propos</a>
+        <a href="projets.html" style="color:var(--text)">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a class="btn btn-sm" href="contact.html" style="color: #fff;">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section terminal-section">
+      <canvas id="matrix-canvas"></canvas>
+      
+      <div class="container relative-z">
+        
+        <!-- SECTION PROJETS ACADÉMIQUES ET PRO -->
+        <div class="terminal-window">
+          <div class="terminal-prompt">
+            <div class="play-icon"></div>
+            <div class="prompt-text">Projets académiques</div>
+          </div>
+          
+          <div class="terminal-content stack gap-3">
+            <div class="projects-grid">
+              
+              <!-- 1. Pentest Bug&Blog -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Audit Red Teaming</h3>
+                  <p>Mission de test d'intrusion (boîte grise). Cartographie, exploitation de failles critiques (FTP, Kernel Linux) et rapport d'audit CVSSv3.</p>
+                  <div class="tags">
+                    <span class="tag">Sécurité Offensive</span><span class="tag">Linux</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE5.Cyber - Pentest_BugAndBlog_Ltd.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 2. Projet INTERPULSE 5G FFF -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>INTERPULSE 5G FFF</h3>
+                  <p>Conception d'une infrastructure 5G privée (Network Slicing) et protection de données médicales par Blockchain pour la FFF.</p>
+                  <div class="tags">
+                    <span class="tag">5G Privée</span><span class="tag">Blockchain</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/Communication - Projet_INTERPULSE_5G_FFF.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 3. Conception SI Scale-Up 80 -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Refonte SI Scale-Up 80</h3>
+                  <p>Conception d'une infrastructure résiliente : sauvegarde 3-2-1, matrice des risques et création d'une "Forteresse" isolée pour la R&D.</p>
+                  <div class="tags">
+                    <span class="tag">Architecture SI</span><span class="tag">PRA</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE5.02 - Conception_SI_Scale-Up_80.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 4. Cluster Hyperviseur Proxmox -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Cluster Proxmox VE</h3>
+                  <p>Ingénierie et déploiement d'un cluster hyperconvergé de 3 nœuds pour héberger 1000 machines virtuelles étudiantes de TP.</p>
+                  <div class="tags">
+                    <span class="tag">Proxmox VE</span><span class="tag">Virtualisation</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE5.01 - Cluster_Hyperviseur_Salles_TP.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 5. Sécurisation Web & DNS -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Sécurisation Web & DNS</h3>
+                  <p>Configuration et durcissement de serveurs Nginx (HTTPS, TLS/SSL) et Bind9 (DNSSEC) pour sécuriser un portail PHP/MySQL.</p>
+                  <div class="tags">
+                    <span class="tag">Nginx / SSL</span><span class="tag">DNSSEC</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE4.01 - WriteUp_Securisation_Web_DNS.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 6. Stage CH Béthune -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>MCO & Support Hospitalier</h3>
+                  <p>Déploiement du logiciel médical DPI Dedalus, accompagnement des soignants et durcissement réseau (Aruba VSF, RDP chiffré).</p>
+                  <div class="tags">
+                    <span class="tag">Support IT</span><span class="tag">Aruba VSF</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/Rapport de Stage 2026.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 7. Audit RGPD Décathlon -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Audit Légal & RGPD</h3>
+                  <p>Analyse de conformité juridique (traceurs, recueil du consentement) et test d'accessibilité (RGAA) pour un site e-commerce.</p>
+                  <div class="tags">
+                    <span class="tag">RGPD</span><span class="tag">Audit Légal</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/R6.02 - Audit_Juridique_RGPD_Decathlon.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 8. Pépinière Multi-Sites -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Réseau Multi-Sites</h3>
+                  <p>Architecture réseau WAN sécurisée avec Tunnel GRE sur IPsec, routage dynamique OSPF et gestion de la Qualité de Service (QoS).</p>
+                  <div class="tags">
+                    <span class="tag">IPsec / GRE</span><span class="tag">Routage OSPF</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE3.03 - Pepiniere_Multi-Sites.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 9. Radio SDR & Signaux -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Radiocommunication & SDR</h3>
+                  <p>Analyse spectrale des bandes télécoms et développement sous GNURadio pour émettre un flux avec un module ADALM-PLUTO.</p>
+                  <div class="tags">
+                    <span class="tag">SDR / RF</span><span class="tag">GNURadio</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE3.01 - Etude_Transmission_Signaux.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 10. Pépinière Infra & IoT -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Infra Pépinière & IoT</h3>
+                  <p>Déploiement réseau PoE, configuration de téléphonie IP (SIP) et pipeline de données Python (Jupyter) pour capteurs IoT.</p>
+                  <div class="tags">
+                    <span class="tag">VoIP / PoE</span><span class="tag">Python / IoT</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE2.01 - Pepiniere_Entreprises_Infra.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 11. Fibre Locon -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Déploiement Fibre FTTH</h3>
+                  <p>Étude de faisabilité, ingénierie de raccordement optique (PMZ) et présentation exécutive pour promouvoir le THD communal.</p>
+                  <div class="tags">
+                    <span class="tag">Fibre Optique</span><span class="tag">Ingénierie</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/Communication - Deploiement_Fibre_FTTH_Locon.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 12. Admin Windows Server -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Automatisation Windows</h3>
+                  <p>Création de scripts d'automatisation PowerShell déployés par GPO pour gérer massivement les environnements utilisateurs.</p>
+                  <div class="tags">
+                    <span class="tag">Windows Server</span><span class="tag">PowerShell</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/R2.04 - Administration_Windows_Serveur.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 13. Découverte Dispositifs Transmission -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Analyse de Signaux</h3>
+                  <p>Simulation mathématique et modélisation de signaux physiques (sinusoïdaux, carrés) à l'aide des outils Matlab et Simulink.</p>
+                  <div class="tags">
+                    <span class="tag">Matlab</span><span class="tag">Simulink</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE1.03 - Decouverte_Dispositif_Transmission.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- 14. Initiation Cisco -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Réseaux Cisco de base</h3>
+                  <p>Configuration de base sur équipements Cisco : attribution IP, création de VLANs, protocoles DHCP, NAT et listes de contrôle (ACL).</p>
+                  <div class="tags">
+                    <span class="tag">Cisco IOS</span><span class="tag">VLAN / DHCP</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="documents/SAE1.02 - Initiation_Reseaux_Informatiques.pdf" target="_blank">Consulter</a>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      
+      <!-- SECTION PROJETS PERSONNELS -->
+      <div class="container relative-z">
+        <div class="terminal-window">
+          <div class="terminal-prompt">
+            <div class="play-icon"></div>
+            <div class="prompt-text">Projets personnels</div>
+          </div>
+          
+          <div class="terminal-content stack gap-3">
+            <div class="projects-grid">
+              
+              <!-- 15. Homelab -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Homelab & Serveurs</h3>
+                  <p>Conception d'un environnement réseau local sur ThinkCentre Tiny. Déploiement de Docker, CasaOS et serveurs Ubuntu durcis.</p>
+                  <div class="tags">
+                    <span class="tag">Docker</span><span class="tag">Auto-hébergement</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <!--<a class="btn btn-sm" href="competences.html">Voir les détails</a>-->
+                  </div>
+                </div>
+              </article>
+
+              <!-- 16. Portfolio -->
+              <article class="project card hover-raise">
+                <div class="project-cover placeholder">Image Projet</div>
+                <div class="card-body">
+                  <h3>Site Web Portfolio</h3>
+                  <p>Création complète de ce site web interactif et responsive pour présenter mon profil en cybersécurité et mes compétences.</p>
+                  <div class="tags">
+                    <span class="tag">HTML/CSS</span><span class="tag">Vanilla JS</span>
+                  </div>
+                  <div class="row gap-1" style="margin-top: 15px;">
+                    <a class="btn btn-sm" href="index.html">Voir</a>
+                  </div>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container row between center-v">
+      <p class="muted">© <span id="y"></span> Loïc Guyot.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelector('.menu-toggle').addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+
+    // Animation Matrix / Hacking
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      const section = document.querySelector('.terminal-section');
+      canvas.height = section ? section.offsetHeight : window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!\\|{}<>[]^~azertyuiopqsdfghjklmwxcvbn';
+    const fontSize = 16;
+    let columns = 0;
+    let drops = [];
+
+    function initMatrix() {
+      columns = canvas.width / fontSize;
+      drops = [];
+      for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+      }
+    }
+    setTimeout(initMatrix, 150);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(14, 15, 20, 0.05)'; 
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#7c5cff'; 
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+  </script>
+</body>
+</html>

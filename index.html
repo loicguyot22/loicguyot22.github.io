@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loïc Guyot - Portfolio Cybersécurité</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  
+  <style>
+    /* 1. Police classique (Inter) pour le texte des terminaux */
+    .terminal-window .lead,
+    .terminal-window .terminal-list {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    }
+    
+    /* 2. Augmentation de la taille de la partie À propos */
+    .terminal-window .terminal-list {
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    /* 3. Homogénéisation des boutons (DA dégradé + texte blanc) */
+    .terminal-window .btn {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2)) !important;
+      border: none !important;
+      color: #ffffff !important;
+      box-shadow: 0 6px 20px rgba(124,92,255,0.25) !important;
+      font-family: 'Inter', system-ui, sans-serif !important;
+    }
+    .terminal-window .btn:hover {
+      filter: brightness(1.1);
+    }
+
+    /* 4. Augmentation de la taille de la partie Hard Skills */
+    .tech-stack-container {
+      padding: 32px !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%; /* Force la box à prendre toute la hauteur disponible */
+    }
+    .stack-title {
+      font-size: 1.25rem !important;
+      margin-bottom: 24px !important;
+      font-family: 'Courier New', Courier, monospace !important; /* On garde le style code pour le titre */
+    }
+    .tech-badge {
+      font-size: 1rem !important;
+      padding: 12px 18px !important;
+    }
+    .tech-badge img {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Mon<span>Portfolio</span></a>
+      <nav class="nav">
+        <a href="index.html" style="color:var(--text)">Accueil & À propos</a>
+        <a href="projets.html">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section terminal-section">
+      <canvas id="matrix-canvas"></canvas>
+      
+      <div class="container relative-z stack gap-3">
+        
+        <div class="terminal-window">
+          <div class="terminal-prompt">
+            <div class="play-icon"></div>
+            <div class="prompt-text">Whoami</div>
+          </div>
+          
+          <div class="terminal-content grid-2">
+            <div class="stack gap-3">
+              <p class="eyebrow">Initialisation du profil...</p>
+              <h1 class="title">Loïc Guyot</h1>
+              <p class="lead">Futur Analyste Cybersécurité | Spécialiste Infra & Réseau.<br><br>Actuellement en 3e année de BUT R&T pour mon stage de fin d'études, je conçois des architectures résilientes et je sécurise les systèmes de demain.</p>
+              <div class="row gap-2">
+                <a class="btn" href="projets.html">Voir mes projets</a>
+                <a class="btn" href="contact.html">Me contacter</a>
+              </div>
+            </div>
+            <div class="hero-media">
+              <div class="profile-container placeholder" style="background: none; border: none;">
+                <img src="img/profile.png" alt="Portrait de Loïc Guyot" class="profile-glitch">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-prompt">
+            <div class="play-icon"></div>
+            <div class="prompt-text">A propos</div>
+          </div>
+          
+          <div class="terminal-content grid-2" style="align-items: stretch;">
+            <div class="stack gap-2 terminal-list">
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">ÉDUCATION :</span> <br> BUT R&T (Spécialité Cyber) @ IUT de Béthune</div>
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">EXPÉRIENCE PRO :</span> <br> IT & Déploiement DPI @ Centre Hospitalier de Beuvry Béthune</div>
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">PROJETS CLÉS :</span> <br> InterPulse (Data FFF), Audit RGPD, Infra Proxmox</div>
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">HOMELAB :</span> <br>Cluster Proxmox, NAS, Serveurs durcis Ubuntu</div>
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">INTÉRÊTS :</span> <br> Sécurité réseau, Cryptographie, Pentest</div>
+              <div><span class="prompt-arrow">[+]</span> <span class="term-key">STATUS :</span> <br> Recherche poste d'Analyste Cybersécurité</div>
+              
+              <a class="btn" href="documents/mon_cv.pdf" download="CV_Loic_Guyot.pdf" style="align-self: flex-start; margin-top: 15px;">
+               Télécharger le CV complet
+              </a>
+            </div>
+            
+            <div class="tech-stack-container card shadow">
+              <h3 class="stack-title">/* HARD SKILLS */</h3>
+              <div class="tech-stack">
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" alt="Ubuntu"> Ubuntu
+                </span>
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux"> Linux
+                </span>
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"> Python
+                </span>
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash"> Scripting
+                </span>
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker"> Docker
+                </span>
+                <span class="tech-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/network/network-original.svg" alt="Network" style="filter: invert(1);"> Réseau / VLAN
+                </span>
+                <span class="tech-badge">Proxmox VE</span>
+                <span class="tech-badge">GLPI / MECM</span>
+                <span class="tech-badge">Apache Guacamole</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container row between center-v">
+      <p class="muted">© <span id="y"></span> Loïc Guyot. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  </script>
+
+  <script>
+    // Animation Matrix / Hacking
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      const section = document.querySelector('.terminal-section');
+      canvas.height = section ? section.offsetHeight : window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!\\|{}<>[]^~azertyuiopqsdfghjklmwxcvbn';
+    const fontSize = 16;
+    let columns = 0;
+    let drops = [];
+
+    function initMatrix() {
+      columns = canvas.width / fontSize;
+      drops = [];
+      for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+      }
+    }
+    setTimeout(initMatrix, 150);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(14, 15, 20, 0.05)'; 
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#7c5cff'; 
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+  </script>
+</body>
+</html>

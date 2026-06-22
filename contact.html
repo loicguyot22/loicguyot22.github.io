@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Loïc Guyot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* CSS spécifique pour la page Contact Cyber */
+    .contact-wrapper {
+      min-height: calc(100vh - 140px); /* Ajustement pour header/footer */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .contact-card {
+      background: rgba(17, 19, 27, 0.85);
+      border: 1px solid var(--brand);
+      border-radius: var(--radius-lg);
+      padding: 50px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 40px rgba(124, 92, 255, 0.15);
+      width: 100%;
+      max-width: 1000px;
+    }
+    .contact-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .contact-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .prompt-cursor {
+      color: var(--brand-2);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    
+    .contact-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+    }
+    .contact-info-list li {
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+    }
+    .contact-icon {
+      font-size: 1.8rem;
+      margin-right: 15px;
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+    }
+    .contact-info-list a {
+      transition: all 0.3s ease;
+    }
+    .contact-info-list a:hover {
+      color: var(--brand-2);
+      text-shadow: 0 0 10px rgba(94, 211, 243, 0.5);
+    }
+    
+    .cyber-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      margin-bottom: 8px;
+      color: var(--brand-2);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+    }
+    .form-group input, .form-group textarea {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 15px rgba(124, 92, 255, 0.3);
+    }
+    .btn-submit {
+      padding: 15px;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      cursor: pointer;
+      color: #ffffff !important; /* Modification : Force l'écriture en blanc */
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">Mon<span>Portfolio</span></a>
+      <nav class="nav">
+        <a href="index.html">Accueil & À propos</a>
+        <a href="projets.html">Projets</a>
+        <a href="competences.html">Compétences</a>
+        <a href="contact.html" style="color:var(--text)">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section terminal-section">
+      <canvas id="matrix-canvas"></canvas>
+      
+      <div class="container relative-z contact-wrapper">
+        <div class="contact-card">
+          <div class="contact-header">
+            <h1><span class="prompt-cursor">></span> Établir une connexion_</h1>
+            <p class="muted">Un projet en cybersécurité, une infrastructure à déployer ou une opportunité ? Discutons-en.</p>
+          </div>
+
+          <div class="grid-2">
+            <!-- Colonne de Gauche : Infos -->
+            <div class="contact-infos">
+              <ul class="contact-info-list">
+                <li>
+                  <span class="contact-icon">📧</span>
+                  <div>
+                    <div class="muted" style="font-size: 0.8rem; margin-bottom: 5px;">Protocole SMTP</div>
+                    <a href="mailto:loic.guyot.etudes@gmail.com">loic.guyot.etudes@gmail.com</a>
+                  </div>
+                </li>
+                <li>
+                  <span class="contact-icon">💼</span>
+                  <div>
+                    <div class="muted" style="font-size: 0.8rem; margin-bottom: 5px;">Réseau Professionnel</div>
+                    <a href="https://www.linkedin.com/in/loïc-guyot" target="_blank">/in/loïc-guyot</a>
+                  </div>
+                </li>
+                <li>
+                  <span class="contact-icon">💻</span>
+                  <div>
+                    <div class="muted" style="font-size: 0.8rem; margin-bottom: 5px;">Dépôts & Code Source</div>
+                    <a href="https://github.com/loicguot" target="_blank">github.com/loicguot</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Colonne de Droite : Formulaire -->
+            <form class="cyber-form">
+              <div class="form-group">
+                <label>IDENTIFIANT (NOM)</label>
+                <input type="text" placeholder="Entrez votre nom..." required>
+              </div>
+              <div class="form-group">
+                <label>ADRESSE DE RÉPONSE (EMAIL)</label>
+                <input type="email" placeholder="nom@domaine.com" required>
+              </div>
+              <div class="form-group">
+                <label>PAYLOAD (MESSAGE)</label>
+                <textarea rows="5" placeholder="Votre message crypté ou en clair..." required></textarea>
+              </div>
+              <button class="btn btn-submit" type="submit">Envoyer la requête</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container row between center-v">
+      <p class="muted">© <span id="y"></span> Loïc Guyot.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.querySelector('.menu-toggle').addEventListener('click', () => document.querySelector('.nav').classList.toggle('open'));
+
+    // Animation Matrix / Hacking
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      const section = document.querySelector('.terminal-section');
+      canvas.height = section ? section.offsetHeight : window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 100);
+
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%""\'#&_(),.;:?!\\|{}<>[]^~azertyuiopqsdfghjklmwxcvbn';
+    const fontSize = 16;
+    let columns = 0;
+    let drops = [];
+    function initMatrix() {
+      columns = canvas.width / fontSize;
+      drops = [];
+      for (let x = 0; x < columns; x++) { drops[x] = 1; }
+    }
+    setTimeout(initMatrix, 150);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(14, 15, 20, 0.05)'; 
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#7c5cff'; 
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+        drops[i]++;
+      }
+    }
+    setInterval(drawMatrix, 35);
+  </script>
+</body>
+</html>
